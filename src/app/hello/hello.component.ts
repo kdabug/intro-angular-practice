@@ -7,8 +7,24 @@ import { Component, OnInit } from "@angular/core";
 })
 export class HelloComponent implements OnInit {
   myvariable = "mikayda";
-  bitwiseOF = 2;
+  bitwiseOR = 2 | 5;
+  i = 0;
+  //somewar to indicate that angular is changing
+  //because will create a new random wariable and will show how many times
+  //lifecycle method is unecessarily called by including the called function
+  //in the component
+  someVar = Math.random();
   constructor() {}
 
-  ngOnInit() {}
+  doSomethingHeavyTask() {
+    console.log(
+      "this is the do something heavy task function",
+      `this is called ${this.i++} times`
+    );
+  }
+  ngOnInit() {
+    setInterval(() => {
+      this.someVar = Math.random();
+    }, 50);
+  }
 }
