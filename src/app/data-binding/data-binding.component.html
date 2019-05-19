@@ -1,0 +1,8 @@
+<p>data-binding works! this is the data-binding myvariable {{ myvariable }}</p>
+<input type="text" value="{{ myvariable }}" disabled="{{ myDisabledValue }}" />
+<input type="text" [value]="myvariable" />
+<!-- source to target [] -->
+<input type="text" value="{{ myvariable }}" [disabled]="myDisabledValue" />
+
+<!-- target to source () -->
+<button (click)="callmyFunction()">Call My Function on Click</button>

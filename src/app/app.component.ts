@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { HelloComponent } from "./hello/hello.component";
+import { DataBindingComponent } from "./data-binding/data-binding.component";
 
 // function log(target, name, descriptor) {
 //   console.log(target, name, descriptor);
