@@ -12,6 +12,7 @@ import { HelloComponent } from "./hello/hello.component";
 import { DataBindingComponent } from "./data-binding/data-binding.component";
 import { TwoWayDataBindingComponent } from "./two-way-data-binding/two-way-data-binding.component";
 import { NgformComponent } from "./ngform/ngform.component";
+import { HttpComponentComponent } from './http-component/http-component.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { NgformComponent } from "./ngform/ngform.component";
     HelloComponent,
     DataBindingComponent,
     TwoWayDataBindingComponent,
-    NgformComponent
+    NgformComponent,
+    HttpComponentComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [RecordsService, HttpClientService],
