@@ -1,0 +1,11 @@
+<p>
+  two-way-data-binding works! We need the user input to update the javascript.
+</p>
+<!-- value and input directives in Angular out of the box -->
+<input type="text" [value]="text" (input)="updateValue($event)" />
+{{ text }}
+
+<!-- ngModel is not built in; need to import it in app.module.ts; 
+  be sure that it is listed in imports under NgModule as FormModule -->
+<input type="text" [(ngModel)]="modelText" />
+{{ modelText }}

@@ -1,3 +1,4 @@
+import { TwoWayDataBindingComponent } from "./two-way-data-binding/two-way-data-binding.component";
 import { Component } from "@angular/core";
 import { HelloComponent } from "./hello/hello.component";
 import { DataBindingComponent } from "./data-binding/data-binding.component";
