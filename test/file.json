@@ -1,0 +1,28 @@
+{
+  "obj": [
+    {
+      "name": "mikayda",
+      "online": true
+    },
+    {
+      "name": "fred",
+      "online": true
+    },
+    {
+      "name": "liam",
+      "online": false
+    },
+    {
+      "name": "mikayda",
+      "online": true
+    },
+    {
+      "name": "fred",
+      "online": true
+    },
+    {
+      "name": "liam",
+      "online": false
+    }
+  ]
+}

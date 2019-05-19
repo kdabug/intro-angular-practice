@@ -1,8 +1,10 @@
 import { RecordsService } from "./records.service";
+import { HttpClientService } from "./httpclient.service";
 
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
+import { HttpClientModule } from "@angular/common/http";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -19,8 +21,8 @@ import { NgformComponent } from "./ngform/ngform.component";
     TwoWayDataBindingComponent,
     NgformComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
-  providers: [RecordsService],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
+  providers: [RecordsService, HttpClientService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
