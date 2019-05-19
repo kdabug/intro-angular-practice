@@ -7,13 +7,15 @@ import { AppComponent } from "./app.component";
 import { HelloComponent } from "./hello/hello.component";
 import { DataBindingComponent } from "./data-binding/data-binding.component";
 import { TwoWayDataBindingComponent } from "./two-way-data-binding/two-way-data-binding.component";
+import { NgformComponent } from './ngform/ngform.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HelloComponent,
     DataBindingComponent,
-    TwoWayDataBindingComponent
+    TwoWayDataBindingComponent,
+    NgformComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
