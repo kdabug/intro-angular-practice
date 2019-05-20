@@ -4,7 +4,7 @@ import { HttpClient } from "@angular/common/http";
 //NOTE: make sure to start the server with command
 //php -S localhost:1234
 interface myData {
-  obj: Object;
+  obj: Array<Object>;
 }
 @Injectable({
   providedIn: "root"

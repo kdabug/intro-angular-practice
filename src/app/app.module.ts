@@ -1,3 +1,4 @@
+import { ApiService } from "./api.service";
 import { RecordsService } from "./records.service";
 import { HttpClientService } from "./httpclient.service";
 
@@ -12,7 +13,8 @@ import { HelloComponent } from "./hello/hello.component";
 import { DataBindingComponent } from "./data-binding/data-binding.component";
 import { TwoWayDataBindingComponent } from "./two-way-data-binding/two-way-data-binding.component";
 import { NgformComponent } from "./ngform/ngform.component";
-import { HttpComponentComponent } from './http-component/http-component.component';
+import { HttpComponentComponent } from "./http-component/http-component.component";
+import { ProxyConfigurationComponent } from "./proxy-configuration/proxy-configuration.component";
 
 @NgModule({
   declarations: [
@@ -21,10 +23,11 @@ import { HttpComponentComponent } from './http-component/http-component.componen
     DataBindingComponent,
     TwoWayDataBindingComponent,
     NgformComponent,
-    HttpComponentComponent
+    HttpComponentComponent,
+    ProxyConfigurationComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
-  providers: [RecordsService, HttpClientService],
+  providers: [RecordsService, HttpClientService, ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

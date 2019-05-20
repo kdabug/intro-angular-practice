@@ -4,7 +4,7 @@ import { RecordsService } from "./../records.service";
 import { Component, OnInit } from "@angular/core";
 
 interface myData {
-  obj: Object;
+  obj: Array<Object>;
 }
 
 @Component({
@@ -14,7 +14,7 @@ interface myData {
 })
 export class HttpComponentComponent implements OnInit {
   //initial
-  records = {};
+  records = [];
 
   constructor(private myFirstService: HttpClientService) {}
 
