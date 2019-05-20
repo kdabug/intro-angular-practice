@@ -3,6 +3,7 @@ import { AuthService } from "./auth.service";
 import { ApiService } from "./api.service";
 import { RecordsService } from "./records.service";
 import { HttpClientService } from "./httpclient.service";
+import { UserService } from "./user.service";
 
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
@@ -43,7 +44,8 @@ import { AdminComponent } from "./admin/admin.component";
     HttpClientService,
     ApiService,
     AuthService,
-    AuthGuard
+    AuthGuard,
+    UserService
   ],
   bootstrap: [AppComponent]
 })
