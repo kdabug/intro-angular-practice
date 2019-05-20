@@ -5,12 +5,17 @@ import { RoutingComponent } from "./routing/routing.component";
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { HomeComponent } from "./home/home.component";
+import { AuthGuard } from "./auth.guard";
 
 const routes: Routes = [
   { path: "home", component: HomeComponent },
   { path: "routing", component: RoutingComponent },
   { path: "login", component: LoginComponent },
-  { path: "admin", component: AdminComponent }
+  {
+    path: "admin",
+    component: AdminComponent,
+    canActivate: [AuthGuard]
+  }
 ];
 
 @NgModule({

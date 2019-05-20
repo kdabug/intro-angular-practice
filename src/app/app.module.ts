@@ -1,3 +1,5 @@
+import { AuthGuard } from "./auth.guard";
+import { AuthService } from "./auth.service";
 import { ApiService } from "./api.service";
 import { RecordsService } from "./records.service";
 import { HttpClientService } from "./httpclient.service";
@@ -18,8 +20,8 @@ import { HttpComponentComponent } from "./http-component/http-component.componen
 import { ProxyConfigurationComponent } from "./proxy-configuration/proxy-configuration.component";
 import { RoutingComponent } from "./routing/routing.component";
 import { HomeComponent } from "./home/home.component";
-import { LoginComponent } from './login/login.component';
-import { AdminComponent } from './admin/admin.component';
+import { LoginComponent } from "./login/login.component";
+import { AdminComponent } from "./admin/admin.component";
 
 @NgModule({
   declarations: [
@@ -36,7 +38,13 @@ import { AdminComponent } from './admin/admin.component';
     AdminComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
-  providers: [RecordsService, HttpClientService, ApiService],
+  providers: [
+    RecordsService,
+    HttpClientService,
+    ApiService,
+    AuthService,
+    AuthGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

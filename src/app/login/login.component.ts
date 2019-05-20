@@ -1,5 +1,6 @@
 import { AuthService } from "./../auth.service";
 import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-login",
@@ -7,7 +8,7 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./login.component.css"]
 })
 export class LoginComponent implements OnInit {
-  constructor(private Auth: AuthService) {}
+  constructor(private Auth: AuthService, private router: Router) {}
 
   ngOnInit() {}
   loginUser(event) {
@@ -18,6 +19,8 @@ export class LoginComponent implements OnInit {
     this.Auth.getUserDetails(username, password).subscribe(data => {
       if (data.success) {
         //redirect the person to /admin
+        this.router.navigate(["admin"]);
+        this.Auth.setLoggedIn(true);
       } else {
         window.alert(data.message);
       }
