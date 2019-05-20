@@ -44,6 +44,7 @@ import { DataBindingComponent } from "./data-binding/data-binding.component";
 })
 export class AppComponent {
   title = "intro-angular";
+  appVariable = "mikayda's intro to angular";
 
   constructor() {
     console.log(
