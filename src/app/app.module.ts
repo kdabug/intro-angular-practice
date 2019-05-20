@@ -18,6 +18,8 @@ import { HttpComponentComponent } from "./http-component/http-component.componen
 import { ProxyConfigurationComponent } from "./proxy-configuration/proxy-configuration.component";
 import { RoutingComponent } from "./routing/routing.component";
 import { HomeComponent } from "./home/home.component";
+import { LoginComponent } from './login/login.component';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { HomeComponent } from "./home/home.component";
     HttpComponentComponent,
     ProxyConfigurationComponent,
     RoutingComponent,
-    HomeComponent
+    HomeComponent,
+    LoginComponent,
+    AdminComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [RecordsService, HttpClientService, ApiService],
