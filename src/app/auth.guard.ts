@@ -12,12 +12,18 @@ import {
   Router
 } from "@angular/router";
 import { Observable } from "rxjs";
+import { UserService } from "./user.service";
+import { map } from "rxjs/operators";
 
 @Injectable({
   providedIn: "root"
 })
 export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
-  constructor(private auth: AuthService, private router: Router) {}
+  constructor(
+    private auth: AuthService,
+    private router: Router,
+    private user: UserService
+  ) {}
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
@@ -27,10 +33,30 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
     | boolean
     | UrlTree {
     if (this.auth.isLoggedIn) {
-      this.router.navigate(["login"]);
+      //we might be logged in
+
+      return true;
+      //localstorage way of auth to see if user is logged in
+      //this.router.navigate(["login"]);
     }
-    return this.auth.isLoggedIn;
+
+    //localstorage
+    //return this.auth.isLoggedIn;
+
+    //server
+    // create isLoggedIn.php
+    return this.user.isLoggedIn().pipe(
+      map(res => {
+        if (res.status) {
+          this.auth.setLoggedIn(true);
+        } else {
+          this.router.navigate(["login"]);
+          return false;
+        }
+      })
+    );
   }
+
   canActivateChild(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot

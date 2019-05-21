@@ -14,6 +14,10 @@ export class AdminComponent implements OnInit {
   ngOnInit() {
     this.user.getSomeData().subscribe(data => {
       this.message = data.message;
+      //local storage
+      if (!data.success) {
+        localStorage.removeItem("loggedIn");
+      }
     });
   }
 }

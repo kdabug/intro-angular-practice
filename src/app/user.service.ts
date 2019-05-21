@@ -6,6 +6,10 @@ interface myData {
   success: boolean;
 }
 
+interface isLoggedIn {
+  status: boolean;
+}
+
 @Injectable({
   providedIn: "root"
 })
@@ -14,5 +18,9 @@ export class UserService {
 
   getSomeData() {
     return this.http.get<myData>("/api/database.php");
+  }
+  //if using user service to check if logged in RATHER than localstorage
+  isLoggedIn(): Observable<isLoggedIn> {
+    return this.http.get<isLoggedIn>("/api/isloggedin.php");
   }
 }
