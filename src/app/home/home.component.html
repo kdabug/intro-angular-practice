@@ -1,5 +1,15 @@
-<p>home works!</p>
+<p>
+  home component works! button div below. admin is changed to dashboard
+  component. this component utilizes the data-binding, two-way-data-binding, and
+  ngform components.
+</p>
 
+<div id="buttons">
+  <a routerLink="/login" class="buttons">Login </a>
+  <a routerLink="/register" class="buttons">Register</a>
+  <a routerLink="/dashboard" class="buttons">Dashboard</a>
+</div>
+<!-- home component will change admin to dashboard -->
 <router-outlet></router-outlet>
 <app-hello></app-hello>
 <app-data-binding></app-data-binding>

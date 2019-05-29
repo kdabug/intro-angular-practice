@@ -37,4 +37,12 @@ export class AuthService {
     });
     // .subscribe(data => console.log(data, " is what we got from the server"));
   }
+
+  registerUser(username, password, cpassword) {
+    return this.http.post("/api/register", {
+      username,
+      password,
+      cpassword
+    });
+  }
 }

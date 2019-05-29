@@ -1,3 +1,4 @@
+import { Observable } from "rxjs";
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 
@@ -8,6 +9,10 @@ interface myData {
 
 interface isLoggedIn {
   status: boolean;
+}
+
+interface logoutStatus {
+  success: boolean;
 }
 
 @Injectable({
@@ -22,5 +27,9 @@ export class UserService {
   //if using user service to check if logged in RATHER than localstorage
   isLoggedIn(): Observable<isLoggedIn> {
     return this.http.get<isLoggedIn>("/api/isloggedin.php");
+  }
+
+  logout() {
+    return this.http.get<logoutStatus>("/api/logout.php");
   }
 }
