@@ -8,6 +8,12 @@ import { Router } from "@angular/router";
   styleUrls: ["./register.component.css"]
 })
 export class RegisterComponent implements OnInit {
+  //syntax is equal to
+  //auth: AuthService
+  //constructor( Auth: AuthService) {
+  //  this.auth = auth
+  //}
+
   constructor(private Auth: AuthService, private router: Router) {}
 
   ngOnInit() {}
@@ -25,6 +31,12 @@ export class RegisterComponent implements OnInit {
 
     //more validation like querying
     if (errors.length > 0) {
+      this.Auth.registerUser(username, password).subscribe(data => {
+        console.log(data);
+        if (data.success) {
+          this.router.navigate(["dashboard"]);
+        }
+      });
     }
     console.log("username & pass", username, password);
   }
