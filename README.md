@@ -1,8 +1,22 @@
-# IntroAngular
+# IntroAngular APP
 
 This is a practice project following along with the freeCodeCamp tutorial found at: https://www.youtube.com/watch?v=2OHbjep_WjQ
 
 ## Node Server
+
+This project uses a node server in an angular app.
+
+```
+mkdir server
+cd server
+npm init
+npm i express -save
+touch index.js
+npm i body-parser
+nodemon index.js //to make sure that the server is listening
+```
+
+## ANGULAR
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.9.
 
@@ -29,3 +43,7 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+```
+
+```
