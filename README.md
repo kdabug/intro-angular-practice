@@ -2,6 +2,8 @@
 
 This is a practice project following along with the freeCodeCamp tutorial found at: https://www.youtube.com/watch?v=2OHbjep_WjQ
 
+## Node Server
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.9.
 
 ## Development server
