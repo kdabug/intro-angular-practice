@@ -16,6 +16,16 @@ npm i body-parser
 nodemon index.js //to make sure that the server is listening
 ```
 
+This app also uses MongoDB for the backend - via `brew install mongodb` (for mac) - so run ```npm install mongoose` in the server folder. Continuing in the server folder ->
+
+```
+mkdir schemas
+cd schemas
+touch users.js
+```
+
+Run `mongod` and then `nodemon index.js`. Tested with robomongo (added users) and postico.
+
 ## ANGULAR
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.9.
