@@ -18,8 +18,8 @@ export class LoginComponent implements OnInit {
     const password = target.querySelector("#password").value;
     this.Auth.getUserDetails(username, password).subscribe(data => {
       if (data.success) {
-        //redirect the person to /admin
-        this.router.navigate(["admin"]);
+        //redirect the person to /dashboard
+        this.router.navigate(["dashboard"]);
         this.Auth.setLoggedIn(true);
       } else {
         window.alert(data.message);

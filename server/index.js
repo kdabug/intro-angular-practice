@@ -24,14 +24,15 @@ app.post("/api/login", async (req, res) => {
   }
   res.send("k");
 });
-app.post("/api/register", (req, res) => {
-    //store this data on database
+app.post("/api/register", async (req, res) => {
+  //store this data on database
   console.log("app.post req.body", req.body);
   const { email, password } = req.body; //destructured
   const user = new User({ email, password });
+
   const result = await user.save();
   console.log("app.post result", result);
-  
+  res.json(result);
   //Usermodel.save({});
 });
 
