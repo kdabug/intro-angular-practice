@@ -26,6 +26,8 @@ touch users.js
 
 Run `mongod` and then `nodemon index.js`. Tested with robomongo (added users) and postico.
 
+In the server folder, run `npm i express-session --save` which allows us to use cookies and session in express.
+
 ## ANGULAR
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.9.

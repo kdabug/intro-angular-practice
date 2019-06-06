@@ -2,6 +2,15 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const app = express();
+const session = require("express-session");
+
+app.use(
+  session({
+    secret: "alskdgasdhgalksdjf213sdkfjsldfj",
+    saveUninitialized: false, //cookie is not created for someone who is not authrenticated.
+    resave: false //will not resave the cookie when no change is made
+  })
+);
 
 mongoose.Promise = Promise;
 mongoose
@@ -29,6 +38,7 @@ app.post("/api/login", async (req, res) => {
       success: true,
       massage: "correct details"
     });
+    req.session.user = email;
   }
   res.send("k");
 });
@@ -56,6 +66,11 @@ app.post("/api/register", async (req, res) => {
     massage: "successfully registed"
   });
   //Usermodel.save({});
+});
+
+app.get("./data", (req, res) => {
+  //console.log("user is =>", req.session.user);
+  res.send("user is =>" + req.session.user);
 });
 
 app.listen(1234, () => console.log("Server is listening at 1234"));
