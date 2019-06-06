@@ -53,7 +53,7 @@ app.get("/api/isloggedin", (req, res) => {
 
 app.post("/api/register", async (req, res) => {
   //store this data on database
-  console.log("app.post req.body", req.body);
+  console.log("app.post register req.body", req.body);
 
   const { email, password } = req.body; //destructured
 
@@ -93,6 +93,39 @@ app.get("/api/data", async (req, res) => {
     status: true,
     email: req.session.user,
     quote: user.quote
+  });
+});
+
+app.get("/api/logout", (req, res) => {
+  req.session.email = undefined;
+  req.session.save();
+  //instead of above two lines can use
+  //req.session.destroy()
+  res.json({ success: true });
+});
+
+app.post("/api/quote", async (req, res) => {
+  //store this data on database
+  console.log(
+    "app.post quote req.session.user req.body.value",
+    req.session.user,
+    req.body.value
+  );
+
+  const user = await User.findOne({ email: req.session.email });
+  if (!user) {
+    res.json({
+      success: false,
+      message: "user not found"
+    });
+    return;
+  }
+  await User.update(
+    { email: req.session.user },
+    { $set: { quote: req.body.value } }
+  );
+  res.json({
+    success: true
   });
 });
 
