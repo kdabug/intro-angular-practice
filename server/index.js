@@ -39,9 +39,18 @@ app.post("/api/login", async (req, res) => {
       massage: "correct details"
     });
     req.session.user = email;
+    req.session.save();
   }
   res.send("k");
 });
+
+//using mongo/express sessions to check if user is logged in
+app.get("/api/isloggedin", (req, res) => {
+  res.json({
+    status: !!req.session.user
+  });
+});
+
 app.post("/api/register", async (req, res) => {
   //store this data on database
   console.log("app.post req.body", req.body);
@@ -60,7 +69,7 @@ app.post("/api/register", async (req, res) => {
   const user = new User({ email, password });
 
   const result = await user.save();
-  console.log("app.post result", result);
+  console.log("app.post register result", result);
   res.json({
     success: true,
     massage: "successfully registed"
@@ -68,9 +77,23 @@ app.post("/api/register", async (req, res) => {
   //Usermodel.save({});
 });
 
-app.get("./data", (req, res) => {
+app.get("/api/data", async (req, res) => {
   //console.log("user is =>", req.session.user);
-  res.send("user is =>" + req.session.user);
+  //res.send("user is =>" + req.session.user);
+
+  const user = await User.findOne({ email: req.session.email });
+  if (!user) {
+    res.json({
+      status: false,
+      message: "user not found"
+    });
+    return;
+  }
+  res.json({
+    status: true,
+    email: req.session.user,
+    quote: user.quote
+  });
 });
 
 app.listen(1234, () => console.log("Server is listening at 1234"));

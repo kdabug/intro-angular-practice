@@ -1,4 +1,4 @@
-import { AdminComponent } from "./admin/admin.component";
+//import { AdminComponent } from "./admin/admin.component";
 import { LoginComponent } from "./login/login.component";
 import { AppComponent } from "./app.component";
 import { RoutingComponent } from "./routing/routing.component";
@@ -14,12 +14,16 @@ const routes: Routes = [
   { path: "home", component: HomeComponent },
   { path: "routing", component: RoutingComponent },
   { path: "login", component: LoginComponent },
+  // {
+  //   path: "admin",
+  //   component: AdminComponent,
+  //   canActivate: [AuthGuard]
+  // },
   {
-    path: "admin",
-    component: AdminComponent,
+    path: "dashboard",
+    component: DashboardComponent,
     canActivate: [AuthGuard]
   },
-  { path: "dashboard", component: DashboardComponent },
   { path: "register", component: RegisterComponent },
   { path: "logout", component: LogoutComponent }
 ];
