@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { UserService } from "../user.service";
 
 @Component({
   selector: "app-header",
@@ -6,9 +7,14 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./header.component.css"]
 })
 export class HeaderComponent implements OnInit {
-  greetMessage = "hello guest";
+  greetMessage = "Loading....";
   logout = true;
-  constructor() {}
+  constructor(private user: UserService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.user.getAllState().subscribe(state => {
+      console.log(state);
+      this.greetMessage = state.login ? "Hello" + state.user : "Hello Guest";
+    });
+  }
 }

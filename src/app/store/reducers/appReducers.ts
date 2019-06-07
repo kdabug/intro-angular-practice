@@ -2,10 +2,12 @@ import { ACTION_LOGOUT, ACTION_LOGIN } from "../actions/appActions";
 
 export interface appReducerState {
   login: boolean;
+  user?: string;
 }
 
 const initialState: appReducerState = {
-  login: false
+  login: false,
+  user: "mikayda"
   //....
 };
 

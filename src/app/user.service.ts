@@ -1,6 +1,7 @@
 import { Observable } from "rxjs";
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { Store } from "@ngrx/store";
 
 interface myData {
   message: string;
@@ -29,7 +30,7 @@ interface quoteStatus {
   providedIn: "root"
 })
 export class UserService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private store: Store<any>) {}
 
   getExpressData() {
     return this.http.get<myExpressData>("/api/data");
@@ -57,5 +58,9 @@ export class UserService {
 
   updateQuote(value) {
     return this.http.post<quoteStatus>("/api/quote", { value });
+  }
+
+  getAllState() {
+    return this.store.select("appReducer");
   }
 }
