@@ -11,6 +11,9 @@ import { FormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 
 import { AppRoutingModule } from "./app-routing.module";
+import { StoreModule } from "@ngrx/store";
+//import { reducers } from "./reducers";
+import { reducers } from "./store/reducers";
 
 import { AppComponent } from "./app.component";
 import { HelloComponent } from "./hello/hello.component";
@@ -26,6 +29,7 @@ import { AdminComponent } from "./admin/admin.component";
 import { LogoutComponent } from "./logout/logout.component";
 import { RegisterComponent } from "./register/register.component";
 import { DashboardComponent } from "./dashboard/dashboard.component";
+import { HeaderComponent } from "./header/header.component";
 
 @NgModule({
   declarations: [
@@ -42,9 +46,19 @@ import { DashboardComponent } from "./dashboard/dashboard.component";
     AdminComponent,
     LogoutComponent,
     RegisterComponent,
-    DashboardComponent
+    DashboardComponent,
+    HeaderComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    // StoreModule.forRoot(reducers, {
+    //   initialState: { greetMessage: "hello guest", logout: true }
+    // })
+    StoreModule.forRoot(reducers, {})
+  ],
   providers: [
     RecordsService,
     HttpClientService,

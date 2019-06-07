@@ -28,6 +28,10 @@ Run `mongod` and then `nodemon index.js`. Tested with robomongo (added users) an
 
 In the server folder, run `npm i express-session --save` which allows us to use cookies and session in express.
 
+## Redux
+
+Run `npm install @ngrx/store --save` (and then make sure that StoreModule is imported into app.module).
+
 ## ANGULAR
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.9.

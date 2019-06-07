@@ -1,0 +1,10 @@
+<p>
+  header works!
+</p>
+
+<div id="header">
+  <h1>My app is the best</h1>
+  <a href="/dashboard"> {{ greetMessage }}</a>
+  <a *ngIf="logout" routerLink="/logout">Logout</a>
+  <a *ngIf="!logout" routerLink="/login">Login</a>
+</div>
